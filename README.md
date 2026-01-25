@@ -32,7 +32,7 @@ The application runs entirely inside Docker containers. No local installation of
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repository-url>
+   git clone https://github.com/Janutimate/Project-BBNJKS.git
    cd Project-BBNJKS
 
 
@@ -45,16 +45,18 @@ backend/.env.example → backend/.env
 
 The .env file should contain:
 
-PORT=5000
-MONGO_URI=mongodb://mongo:27017/qr_attendance
-
+  ```bash
+  PORT=5000
+  MONGO_URI=mongodb://mongo:27017/qr_attendance
+  ```
 
 3. **Build and start the application**
 
 From the project root directory, run:
 
+```bash
 docker-compose up --build
-
+```
 
 This will:
    -Build and start the backend (Node.js + Express)
@@ -94,8 +96,10 @@ This endpoint is accessible from the Dockerised version of the application.
 
 To stop all running containers, press:
 
-CTRL + C
-
+```bash
+  CTRL + C
+```
 Or run:
-
+```bash
 docker-compose down
+```
