@@ -1,55 +1,91 @@
-# QR Attendance System
+# Student Attendance Management System (Dockerised)
 
-## Project Overview
-The **QR Attendance System** is a web-based application designed to digitize and streamline classroom attendance management. It allows instructors to create classes and attendance sessions, while students can securely mark their attendance by scanning a QR code. This approach reduces manual effort, minimizes errors, and replaces traditional paper-based attendance methods.
+This application is a full-stack student attendance management system.  
+It has been fully containerised using **Docker** and **Docker Compose** to allow it to run end-to-end in a clean environment.
 
 ---
 
-## Features
-- Class and session management for instructors  
-- Secure QR-based attendance marking for students  
-- Real-time attendance tracking  
-- Centralized data storage for attendance records  
+## How to Run the Application (Docker)
+
+The application runs entirely inside Docker containers. No local installation of Node.js or MongoDB is required.
 
 ---
 
 ## Prerequisites
-Before running this project, make sure you have the following installed on your system:
 
-- **Node.js** (version 16 or higher)
-- **npm** (included with Node.js)
-- **MongoDB** (local installation or cloud-based)
+- Docker Desktop installed and running  
+  https://www.docker.com/products/docker-desktop/
 
 ---
 
-## Installation & Setup
+## Setup Instructions
 
-### Backend Setup
-1. Navigate to the backend directory:
+1. **Clone the repository**
    ```bash
-   cd backend
-2. Install Dependencies: 
-npm install
-
-3.Start the backend server:
-
-npm start
-
-4. The server will run at:
-
-http://localhost:5000
-
-Frontend Setup
-
-1. Open a new terminal window
-2.Navigate to the frontend directory:
-cd frontend
+   git clone <your-repository-url>
+   cd Project-BBNJKS
 
 
-3.Install dependencies:
-npm install
-4.Start the application:
-npm start
-5. The application will be available at:
+2. **Create the environment configuration**
+
+In the backend directory, create a .env file using the example provided:
+
+backend/.env.example → backend/.env
+
+
+The .env file should contain:
+
+PORT=5000
+MONGO_URI=mongodb://mongo:27017/qr_attendance
+
+
+3. **Build and start the application**
+
+From the project root directory, run:
+
+docker-compose up --build
+
+
+This will:
+   -Build and start the backend (Node.js + Express)
+   -Build and start the frontend (served via Nginx)
+   -Start a MongoDB database container
+   -Connect all services together
+
+4. **Accessing the Application**
+
+Frontend (Web Application):
 http://localhost:3000
 
+Backend API:
+http://localhost:5000
+
+5. **Student Identification**
+
+To uniquely identify this individual submission, the backend will show the following endpoint:
+
+Endpoint:
+GET /api/student
+
+URL:
+http://localhost:5000/api/student
+
+
+Response (JSON):
+{
+  "name": "januth Aditha Abeysinghe",
+  "studentId": "225644509"
+}
+
+This endpoint is accessible from the Dockerised version of the application.
+
+
+6. **Stopping the Application**
+
+To stop all running containers, press:
+
+CTRL + C
+
+Or run:
+
+docker-compose down

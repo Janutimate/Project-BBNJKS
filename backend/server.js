@@ -30,6 +30,14 @@ app.get("/", (req, res) => {
   res.send("QR Attendance Backend is Running");
 });
 
+// Docker
+app.get("/api/student", (req, res) => {
+  res.json({
+    name: "Januth Aditha Abeysinghe",
+    studentId: "225644509"
+  });
+});
+
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
