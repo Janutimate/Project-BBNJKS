@@ -5,6 +5,16 @@ It has been fully containerised using **Docker** and **Docker Compose** to allow
 
 ---
 
+## Configuration and Sensitive Information
+
+The following file is **not committed**:
+- `backend/.env`
+To allow the application to run, an example configuration file is provided:
+- `backend/.env.example`
+
+The marker must create a `.env` file in the `backend` directory using the values specified in `.env.example`. No additional or hidden configuration values are required.
+All required configuration values are documented in this README and no modification of the application code is necessary to run the system successfully.
+
 ## How to Run the Application (Docker)
 
 The application runs entirely inside Docker containers. No local installation of Node.js or MongoDB is required.
