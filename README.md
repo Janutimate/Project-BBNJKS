@@ -67,7 +67,7 @@ This will:
 4. **Accessing the Application**
 
 Frontend (Web Application):
-http://localhost:3000
+http://localhost:8080
 
 Backend API:
 http://localhost:5000
